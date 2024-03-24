@@ -832,15 +832,42 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget>
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Expanded(
+                                  child: Align(
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(6.0),
+                                      child: Text(
+                                        'Hello World',
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleMedium,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: Image.network(
                                       'https://api.mangoboat.tv/music/Netsky/poster.jpg',
                                       width: MediaQuery.sizeOf(context).width *
-                                          0.5,
+                                          0.15,
                                       height:
                                           MediaQuery.sizeOf(context).height *
-                                              1.0,
+                                              0.5,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.network(
+                                      'https://api.mangoboat.tv/music/Netsky/Second Nature/cover.jpg',
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.15,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.5,
                                       fit: BoxFit.contain,
                                     ),
                                   ),

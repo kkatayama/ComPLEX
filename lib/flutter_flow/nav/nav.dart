@@ -92,20 +92,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         ),
         FFRoute(
           name: 'CreateAccount',
-          path: '/createAccount',
+          path: '/sign-up',
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'CreateAccount')
               : const CreateAccountWidget(),
         ),
         FFRoute(
           name: 'Login',
-          path: '/login',
+          path: '/log-in',
           builder: (context, params) =>
               params.isEmpty ? const NavBarPage(initialPage: 'Login') : const LoginWidget(),
         ),
         FFRoute(
           name: 'Songs',
-          path: '/songs',
+          path: '/Tracks',
           requireAuth: true,
           builder: (context, params) =>
               params.isEmpty ? const NavBarPage(initialPage: 'Songs') : const SongsWidget(),
@@ -114,7 +114,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'MusicPlayer',
           path: '/musicPlayer',
           requireAuth: true,
-          builder: (context, params) => const MusicPlayerWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'MusicPlayer')
+              : const MusicPlayerWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -284,7 +286,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/createAccount';
+            return '/sign-up';
           }
           return null;
         },

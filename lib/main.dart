@@ -128,6 +128,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'CreateAccount': const CreateAccountWidget(),
       'Login': const LoginWidget(),
       'Songs': const SongsWidget(),
+      'MusicPlayer': const MusicPlayerWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -142,13 +143,13 @@ class _NavBarPageState extends State<NavBarPage> {
         backgroundColor: Colors.white,
         selectedItemColor: FlutterFlowTheme.of(context).primary,
         unselectedItemColor: const Color(0x8A000000),
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.stacked_bar_chart_rounded,
+              Icons.house_sharp,
               size: 24.0,
             ),
             label: 'Home',
@@ -159,23 +160,31 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.person_add,
               size: 24.0,
             ),
-            label: 'CreateAccount',
+            label: 'Sign Up',
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home_outlined,
+              Icons.login_sharp,
               size: 24.0,
             ),
-            label: 'Login',
+            label: 'Log In',
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.play_circle_sharp,
+              Icons.queue_music_sharp,
               size: 30.0,
             ),
             label: 'Tracks',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.play_lesson_sharp,
+              size: 24.0,
+            ),
+            label: 'Player',
             tooltip: '',
           )
         ],
